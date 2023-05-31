@@ -97,6 +97,9 @@ GEM
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gretel (4.5.0)
+      actionview (>= 5.1, < 7.1)
+      railties (>= 5.1, < 7.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -259,6 +262,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  gretel
   jbuilder (~> 2.7)
   kaminari
   mysql2

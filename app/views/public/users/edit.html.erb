@@ -2,6 +2,7 @@
   <div class="container-fluid px-5">
 
     <div class="row">
+      <% breadcrumb :my_page_edit, @user %>
       <div class="col-12 col-md-2 mt-4 pr-5">
         <h2 class="user_title text-center">User info</h2>
         <%= render 'public/users/public_sidebar', user: @user %>

@@ -1,8 +1,9 @@
 <div class="posts-show">
   <div class="container-fluid px-5">
+    <% breadcrumb :public_post_show, @post %>
 
-    <% if user_signed_in? %>
-      <div class="row">
+    <div class="row">
+      <% if user_signed_in? %>
         <div class="col-12 col-md-2 mt-4">
           <h2 class="user_title text-center">User info</h2>
           <%= render 'public/users/public_sidebar', user: @user %>
@@ -92,14 +93,14 @@
             </div>
 
             <div class="row">
-            <div class="tag-item">
-            <% @post.tags.each do |tag| %>
-              <%= link_to posts_path(tag_id: tag.id), class: "btn btn-outline-info" do %>
-                <%= tag.tag_name %>
+              <div class="tag-item">
+              <% @post.tags.each do |tag| %>
+                <%= link_to posts_path(tag_id: tag.id), class: "btn btn-outline-info" do %>
+                  <%= tag.tag_name %>
+                <% end %>
               <% end %>
-            <% end %>
+              </div>
             </div>
-          </div>
 
             <div class="row mt-4">
               <div class="col-12 col-md-12 post_introduction">

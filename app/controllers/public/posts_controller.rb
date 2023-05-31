@@ -1,14 +1,16 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def new
     @post = Post.new
-    @tag = Tag.all
+    @tags = Tag.all
+    @tag = Tag.new
   end
 
   def create
     @post = Post.new(post_params)
+    @tags = Tag.all
     if (1..4).exclude?(@post.tags.length)
       flash[:my_alert] = "タグは１～４個まで設定できます。"
       render :new
@@ -80,7 +82,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_back(fallback_location: root_path, notice: "投稿を削除しました")
+    redirect_to user_my_page_path(@post.user_id), notice: "投稿を削除しました"
   end
 
   private

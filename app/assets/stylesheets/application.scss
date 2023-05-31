@@ -459,3 +459,16 @@ footer {
   transform: translateY(20px);
   opacity: 0.5;
 }
+
+.breadcrumbs {
+  margin-left: 30px;
+  padding-top: 12px;
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+}
+
+.current {
+  color: #808080;
+  background: linear-gradient(transparent 60%, yellow 30%);
+}
